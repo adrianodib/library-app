@@ -40,7 +40,7 @@ public class AutorController {
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Lista um autor pelo id", tags = "Autor")
-    public ResponseEntity<AutorRecord> findById(Long id){
+    public ResponseEntity<AutorRecord> findById(@PathVariable Long id) {
         var autor = autorService.findById(id);
         return autor != null ? ResponseEntity.ok(autor) : ResponseEntity.notFound().build();
     }

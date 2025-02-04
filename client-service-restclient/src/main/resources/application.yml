@@ -18,3 +18,8 @@ spring:
             token-uri: http://localhost:7080/realms/master/protocol/openid-connect/token
 
 
+logging:
+  level:
+    org:
+      springframework:
+        security=DEBUG:

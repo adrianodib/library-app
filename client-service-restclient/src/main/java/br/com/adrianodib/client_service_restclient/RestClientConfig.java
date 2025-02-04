@@ -20,9 +20,6 @@ public class RestClientConfig {
         OAuth2ClientHttpRequestInterceptor requestInterceptor = new OAuth2ClientHttpRequestInterceptor(authorizedClientManager);
         requestInterceptor.setClientRegistrationIdResolver((HttpRequest request) -> "keycloak");
 
-        //String token = authorizedClientManager.authorize(OAuth2AuthorizeRequest.withClientRegistrationId("keycloak").principal("user").build()).getAccessToken().getTokenValue();
-        //System.out.println("Token JWT: " + token);
-
         return builder.requestInterceptor(requestInterceptor).build();
     }
 

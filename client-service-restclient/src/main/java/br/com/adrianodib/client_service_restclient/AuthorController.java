@@ -3,12 +3,17 @@ package br.com.adrianodib.client_service_restclient;
 import br.com.adrianodib.client_service_restclient.record.AutorRecord;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClient;
+
+import java.util.List;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @RestController
 @RequestMapping("client")
@@ -21,7 +26,7 @@ public class AuthorController {
         this.restClient = restClient;
     }
 
-    @GetMapping("getToken")
+    @GetMapping(value = "getToken", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Testa o Token", tags = "Autor")
     public String getToken() {
         return restClient.get()
@@ -30,18 +35,30 @@ public class AuthorController {
                 .body(String.class);
     }
 
-    @GetMapping("findAll")
+    @GetMapping(value= "findAll", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Lista todos os autores cadastrados na base de dados", tags = "Autor")
-    public String findAllAutores() {
+    public ResponseEntity<List<AutorRecord>> findAllAutores() {
+
         return restClient.get()
                 .uri("http://localhost:8000/sefa/api/autor/findAll")
+                .accept(APPLICATION_JSON)
                 .retrieve()
-                .body(String.class);
+                .toEntity(new ParameterizedTypeReference<List<AutorRecord>>() {});
     }
 
-    @GetMapping("cadastraAutor")
+    @GetMapping(value = "autor/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "Lista um autor pelo id", tags = "Autor")
+    public ResponseEntity<AutorRecord> findById(@PathVariable Long id){
+        return restClient.get()
+                .uri("http://localhost:8000/sefa/api/autor/{id}", id)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .toEntity(AutorRecord.class);
+    }
+
+    @PostMapping(value = "autor/cadastra", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Cadastra um autor na base de dados", tags = "Autor")
-    public ResponseEntity<AutorRecord> cadastraAutor(@RequestBody AutorRecord autor) {
+    public ResponseEntity<AutorRecord> cadastraAutor(@Validated @RequestBody AutorRecord autor) {
         AutorRecord response = restClient.post()
                 .uri("http://localhost:8000/sefa/api/autor/cadastra")
                 .body(autor)
