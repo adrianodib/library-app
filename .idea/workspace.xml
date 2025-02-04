@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0f440d78-2922-4dfc-96f3-1e583435c3d4" name="Changes" comment="Correções e ajustes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service-restclient/src/main/java/br/com/adrianodib/client_service_restclient/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-service-restclient/src/main/java/br/com/adrianodib/client_service_restclient/AuthorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service-restclient/src/main/java/br/com/adrianodib/client_service_restclient/RestClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-service-restclient/src/main/java/br/com/adrianodib/client_service_restclient/RestClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service-restclient/src/main/java/br/com/adrianodib/client_service_restclient/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-service-restclient/src/main/java/br/com/adrianodib/client_service_restclient/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-service-restclient/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/client-service-restclient/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/controller/AutorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/controller/AutorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/entity/Autor.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/entity/Autor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/entity/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/entity/Livro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/record/LivroRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/record/LivroRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/service/AutorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/service/AutorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,7 @@
       <recent name="br.com.adrianodib.resource_service.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientServiceRestclientApplication">
+  <component name="RunManager" selected="Application.ResourceServiceApplication">
     <configuration name="ClientServiceRestclientApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.adrianodib.client_service_restclient.ClientServiceRestclientApplication" />
       <module name="client-service-restclient" />
@@ -122,8 +121,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ClientServiceRestclientApplication" />
         <item itemvalue="Application.ResourceServiceApplication" />
+        <item itemvalue="Application.ClientServiceRestclientApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738678256802</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Correções e ajustes">
+      <option name="closed" value="true" />
+      <created>1738682319004</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738682319004</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -155,19 +162,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client-service-restclient/src/main/java/br/com/adrianodib/client_service_restclient/AuthorController.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/service/AutorService.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/service/AutorService.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/controller/AutorController.java</url>
           <line>43</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/resource-service/src/main/java/br/com/adrianodib/resource_service/controller/AutorController.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

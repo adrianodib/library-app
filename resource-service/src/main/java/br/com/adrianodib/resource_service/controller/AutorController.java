@@ -26,9 +26,9 @@ public class AutorController {
 
     @PostMapping(value = "/cadastra", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Cadastra um autor na base de dados", tags = "Autor")
-    public ResponseEntity<AutorRecord> cadastra(@RequestBody Autor autor) throws Exception  {
+    public ResponseEntity<Autor> cadastra(@RequestBody AutorRecord autor) throws Exception  {
 
-        var saved = autorService.save(autor);
+        Autor saved = autorService.save(autor);
         return new ResponseEntity<>(saved, HttpStatus.OK);
     }
 

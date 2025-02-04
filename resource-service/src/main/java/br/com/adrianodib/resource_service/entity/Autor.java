@@ -15,7 +15,7 @@ import java.util.List;
 public class Autor implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "autor_id", updatable = false, unique = true, nullable = false, length=16)
     private Long autorId;
 
@@ -23,6 +23,7 @@ public class Autor implements Serializable {
     private String nome;
 
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    //@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Livro> livros;
 
     public Autor(){}

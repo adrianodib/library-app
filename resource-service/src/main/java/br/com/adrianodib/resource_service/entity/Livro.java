@@ -21,8 +21,7 @@ public class Livro implements Serializable {
 
     public Livro() {}
 
-    public Livro(Long id, String titulo, String descricao, String categoria, Autor autor) {
-        this.id = id;
+    public Livro(String titulo, String descricao, String categoria, Autor autor) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.categoria = categoria;
@@ -30,7 +29,7 @@ public class Livro implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, unique = true,  length=16)
     private Long id;
 
@@ -43,10 +42,17 @@ public class Livro implements Serializable {
     @Column(name = "categoria", length=50)
     private String categoria;
 
-    @ManyToOne
-    @JoinColumn(name = "autor_id" )
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "autor_id")
     @JsonIgnore
     private Autor autor;
+
+    public Livro(Long id, String titulo, String descricao, String categoria) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.categoria = categoria;
+    }
 
     public Long getId() {
         return id;

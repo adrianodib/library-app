@@ -9,9 +9,11 @@ import br.com.adrianodib.resource_service.exception.NameMandatoryException;
 import br.com.adrianodib.resource_service.record.AutorRecord;
 import br.com.adrianodib.resource_service.record.LivroRecord;
 import br.com.adrianodib.resource_service.repository.AutorRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -26,11 +28,10 @@ public class AutorService {
     @Autowired
     private AutorRepository autorRepo;
 
-    /**
-     * Salva um autor e retorna
-     */
-    public AutorRecord save(Autor autor) throws NameMandatoryException, AutorAlreadyExistsException {
-        String nomeAutor = autor.getNome();
+    @Transactional
+    public Autor save(AutorRecord autorRecord) throws NameMandatoryException, AutorAlreadyExistsException {
+
+        String nomeAutor = autorRecord.nome();
 
         if (nomeAutor == null || nomeAutor.isBlank()) {
             throw new NameMandatoryException();
@@ -40,25 +41,18 @@ public class AutorService {
             throw new AutorAlreadyExistsException();
         }
 
-        if (autor.getLivros() != null) {
-            for (Livro livro : autor.getLivros()) {
-                livro.setAutor(autor);
-            }
-        }
 
-        Autor savedAutor = autorRepo.save(autor);
+        Autor autor = new Autor();
+        autor.setNome(nomeAutor);
 
-        List<LivroRecord> livros = savedAutor.getLivros().stream()
-                .map(livro -> new LivroRecord(
-                        livro.getId(),
-                        livro.getTitulo(),
-                        livro.getDescricao(),
-                        livro.getCategoria()
-                ))
-                .toList();
 
-        return new AutorRecord(savedAutor.getId(), savedAutor.getNome(), livros);
+        List<Livro> livros = autorRecord.livros().stream()
+                .map(livro -> new Livro(livro.titulo(), livro.descricao(), livro.categoria(), autor))
+                .collect(Collectors.toList());
 
+        autor.setLivros(livros);
+
+        return autorRepo.save(autor);
     }
 
     public List<AutorRecord> findAll(){
