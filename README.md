@@ -10,7 +10,6 @@ Implementar o grant type Client Credentials do Oauth 2.0 com o Spring Security.
 - [Spring Security](https://spring.io/projects/spring-security)
 - [Spring Oauth Client](https://docs.spring.io/spring-security/reference/servlet/oauth2/client/index.html)
 - [Spring Oauth Resource Server](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html)
-- [Spring Webflux](https://docs.spring.io/spring-framework/reference/web/webflux.html)
 
 ## Funcionalidades
 

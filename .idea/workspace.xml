@@ -26,12 +26,12 @@
     &quot;assignee&quot;: &quot;adrianodib&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/adrianodib/library.git&quot;,
-    &quot;accountId&quot;: &quot;12e2e357-c409-420d-9e6f-515fc2188c44&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/adrianodib/library-app.git",
+    "accountId": "12e2e357-c409-420d-9e6f-515fc2188c44"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
