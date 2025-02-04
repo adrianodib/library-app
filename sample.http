@@ -1,0 +1,2 @@
+### Get Autor ###
+GET http://localhost:9000/client/autor
